@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAlle Balle</title>
+</head>
+<style>
+    input, button {
+          padding: 12px 20px;          
+           margin: 8px 0;
+          display: inline-block;       
+           border: 1px solid #0d0d0d;
+          border-radius: 4px;          
+           box-sizing: border-box;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                       'Lucida Grande', 'Lucida Sans Unicode',
+                        Geneva, Verdana, sans-serif;
+          align: center;
+         }
+         button:hover {
+            background-color: rgb(139, 33, 142); 
+            color: rgb(52, 173, 93); 
+            cursor: pointer; 
+        }
+</style>
+<body>
+    
+    <script>
+      function loading(){
+        fetch('https://api.chucknorris.io/jokes/random?category=food')
+ 	    .then(response=>response.json())
+        .then(json => document.getElementById("chucks").innerHTML=json.value)
+        .catch(error => console.log('unable to reach URL'+error));
+      }
+        
+      
+
+    </script>
+  <div align="center">
+    <h1> Balle Balle</h1>
+
+    <label>What's chuck doing today?</label>
+    
+    <div style="background-color: rgb(156, 94, 94);height: 100px; width: 50%;">
+        <p id="chucks" style="text-align: center; padding-top: 40px; color: rgb(110, 205, 21);"></p>
+    </div>
+    
+    <button onclick="loading()" id="loading">
+        Load jokes</button>
+
+    
+  </div>
+</body>
+</html>
